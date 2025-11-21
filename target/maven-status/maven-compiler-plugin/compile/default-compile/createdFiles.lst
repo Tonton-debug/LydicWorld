@@ -1,0 +1,11 @@
+com\tonton\LydicWorld\ChatHelper.class
+com\tonton\LydicWorld\PlayerLister.class
+com\tonton\LydicWorld\Plugin.class
+com\tonton\LydicWorld\LydicPlayer.class
+com\tonton\LydicWorld\WorldGenerator.class
+com\tonton\LydicWorld\PlotCreator.class
+com\tonton\LydicWorld\LydicYaml.class
+com\tonton\LydicWorld\LydicPlayerManager.class
+com\tonton\LydicWorld\LydicPlayerHelper.class
+com\tonton\LydicWorld\BaseCommands.class
+com\tonton\LydicWorld\LydicPlayerList.class

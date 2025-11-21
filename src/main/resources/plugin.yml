@@ -1,0 +1,10 @@
+main: com.tonton.LydicWorld.Plugin
+name: LydicWorld
+version: 1.0
+load: startup
+api-version: '1.13'
+commands: 
+   lydic: 
+      description: Команда лудиков
+      permission: lydic
+      usage: /<command> 
