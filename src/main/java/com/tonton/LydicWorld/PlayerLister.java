@@ -4,6 +4,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -36,11 +37,13 @@ public class PlayerLister implements Listener {
 	@EventHandler
 	public void OnUse(PlayerInteractEvent event) {
 		   Player player = event.getPlayer();
-		   
+		   if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK) {
 		   LydicPlayer playerLydic=LydicPlayerManager.GetManager().GetLydic(event.getPlayer().getUniqueId());
 	        ItemStack item = player.getInventory().getItemInMainHand();
-	        	Plugin.plugin.getLogger().info("ANANAS");
+	        	
 	        	GameCaseManager.GetManager().Use(item, playerLydic);
+	        	event.setCancelled(true);
+		   }
 	}
 	 @EventHandler
 	    public void onPlayerChat(AsyncPlayerChatEvent eventas) {
@@ -54,7 +57,7 @@ public void OnRespawn(PlayerRespawnEvent event) {
 	 }
 	 @EventHandler
 public void OnDie(PlayerDeathEvent event) {
-		 Plugin.plugin.getLogger().info("PLAYER "+event.getEntity().getName()+"DIE");
+		 
 		 LydicPlayer pl=LydicPlayerManager.GetManager().GetLydic(event.getEntity().getUniqueId()); 
 		pl.OnDie();	
 	 }

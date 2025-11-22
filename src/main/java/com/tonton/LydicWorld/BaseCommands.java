@@ -51,9 +51,7 @@ public class BaseCommands implements CommandExecutor {
 			}
 			
 		}
-		for(String arg:arg3) {
-			System.out.println("D:"+arg);
-		}
+		
 		return true;
 	}
 	

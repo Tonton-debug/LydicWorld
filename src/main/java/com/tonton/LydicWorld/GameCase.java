@@ -16,7 +16,7 @@ public abstract class GameCase {
 	public abstract int Cost();
 	public abstract Material MaterialType();
 	public boolean Give(LydicPlayer pl,int count) {
-		if(count>100) {
+		if(count>100||count<=0) {
 			ChatHelper.SendMoreCases(pl.GetPlayer());
 			return false;
 		}
