@@ -40,9 +40,13 @@ public class PlayerLister implements Listener {
 		   if(event.getAction()==Action.RIGHT_CLICK_AIR||event.getAction()==Action.RIGHT_CLICK_BLOCK) {
 		   LydicPlayer playerLydic=LydicPlayerManager.GetManager().GetLydic(event.getPlayer().getUniqueId());
 	        ItemStack item = player.getInventory().getItemInMainHand();
-	        	
-	        	GameCaseManager.GetManager().Use(item, playerLydic);
-	        	event.setCancelled(true);
+	        	if(GameCaseManager.GetManager().Use(item, playerLydic)) 
+	        	{
+	        		event.setCancelled(true);
+	        		return;
+	        	}
+	        	event.setCancelled(false);
+	        	return;
 		   }
 	}
 	 @EventHandler

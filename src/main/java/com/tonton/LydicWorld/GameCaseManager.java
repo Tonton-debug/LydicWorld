@@ -29,15 +29,18 @@ public class GameCaseManager {
 			return;
 		_cases.put(gameCase.Index(), gameCase);
 	}
-	public void Use(ItemStack stack,LydicPlayer pl) {
-		for(GameCase caseGame:_cases.values()) {
+	public boolean Use(ItemStack stack,LydicPlayer pl) {
+		for(GameCase caseGame:_cases.values()) 
+		{
 			if(caseGame.IsGameCase(stack))
 			{
 				stack.setAmount(stack.getAmount()-1);
 				caseGame.Use(pl);
-				return;
+				Plugin.plugin.getLogger().info("A:"+stack.getType()+" "+caseGame.MaterialType());
+				return true;
 			}
 		}
+		return false;
 	}
 	public GameCase GetCase(int id) {
 		if(!_cases.containsKey(id))
